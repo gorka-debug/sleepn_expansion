@@ -192,10 +192,17 @@ section{padding-block:64px;}
 .section-head p{color:var(--ink-soft); margin-top:12px; font-size:1.02rem;}
 
 /* INTRO / TIMELINE */
-.intro-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start;}
-@media (max-width:860px){ .intro-grid{grid-template-columns:1fr;} }
+.intro-grid{
+  display:grid; grid-template-columns:1.1fr 0.9fr; grid-template-rows:auto auto;
+  column-gap:48px; row-gap:24px; align-items:start;
+}
+.intro-top{ grid-column:1; grid-row:1; }
 .intro-grid h2{font-size:clamp(1.7rem,3.6vw,2.5rem);}
-.timeline{list-style:none; margin:0; padding:0; border-left:2px solid var(--line);}
+.timeline{
+  grid-column:2; grid-row:1; align-self:stretch;
+  display:flex; flex-direction:column; justify-content:space-between;
+  list-style:none; margin:0; padding:0; border-left:2px solid var(--line);
+}
 .timeline li{position:relative; padding:0 0 22px 24px;}
 .timeline li:last-child{padding-bottom:0;}
 .timeline li::before{
@@ -205,7 +212,13 @@ section{padding-block:64px;}
 .timeline .yr{font-family:'Jost',sans-serif; font-weight:700; font-size:0.82rem; color:var(--coral);}
 .timeline .tt{font-weight:700; margin-top:2px;}
 .timeline .dd{color:var(--ink-soft); font-size:0.92rem; margin-top:2px;}
-.badgerow{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;}
+.badgerow{ grid-column:1; grid-row:2; display:flex; flex-wrap:wrap; gap:10px; }
+@media (max-width:860px){
+  .intro-grid{ grid-template-columns:1fr; grid-template-rows:auto auto auto; row-gap:24px; }
+  .intro-top{ grid-column:1; grid-row:1; }
+  .badgerow{ grid-column:1; grid-row:2; }
+  .timeline{ grid-column:1; grid-row:3; align-self:auto; display:block; }
+}
 .pill{
   border:1px solid var(--line); background:var(--card);
   border-radius:999px; padding:7px 14px; font-size:0.78rem; font-weight:600;
@@ -361,7 +374,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
   .foot-disclaimer{ grid-column:1; grid-row:3; }
 }
 /* B-CORP LOGO — ahora en "Qué hacemos" */
-.intro-bcorp-logo{ display:block; height:56px; width:auto; max-width:100%; object-fit:contain; margin:20px 0 0; }
+.intro-bcorp-logo{ display:block; width:260px; height:auto; max-width:100%; object-fit:contain; margin:20px 0 0; }
 </style>
 </head>
 <body>
@@ -403,19 +416,13 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
 
 <section id="quienes-somos">
   <div class="wrap intro-grid">
-    <div>
+    <div class="intro-top">
       <span class="eyebrow">Qué hacemos</span>
       <h2 style="margin-top:12px;">Gestionamos conceptos hoteleros sostenibles certificados con Bcorp</h2>
       <p style="color:var(--ink-soft); margin-top:16px; font-size:1.02rem; max-width:520px;">
         <b style="color:var(--ink);">La gestión Bcorp multiplica el valor de tu inmueble.</b> SLEEP'N es una gestora hotelera para los que quieren algo más, por menos. No creemos en las categorías hoteleras: creemos en el producto. Reposicionamos Activos singulares en ubicaciones prime, con arquitectos y decoradores de prestigio, apostando siempre por relaciones a largo plazo con los propietarios.
       </p>
       <img class="intro-bcorp-logo" src="img/bcorp-logo.png" alt="Certified B Corporation — esta empresa cumple con altos estándares de impacto social y ambiental">
-      <div class="badgerow">
-        <span class="pill">Neutros en carbono</span>
-        <span class="pill">BREEAM</span>
-        <span class="pill">Great Place to Work</span>
-        <span class="pill">Travelife Gold</span>
-      </div>
     </div>
     <ul class="timeline">
       <li><div class="yr">2016</div><div class="tt">Nace SLEEP'N</div><div class="dd">Reposicionamos un hostal obsoleto de 80 habitaciones en Madrid con un contrato de alquiler a largo plazo.</div></li>
@@ -423,6 +430,12 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
       <li><div class="yr">2026</div><div class="tt">SLEEP'N Valencia</div><div class="dd">Apertura del segundo hotel, 74 habitaciones en Ciutat Vella.</div></li>
       <li><div class="yr">2028</div><div class="tt">Córdoba y Alicante</div><div class="dd">En desarrollo.</div></li>
     </ul>
+    <div class="badgerow">
+      <span class="pill">Neutros en carbono</span>
+      <span class="pill">BREEAM</span>
+      <span class="pill">Great Place to Work</span>
+      <span class="pill">Travelife Gold</span>
+    </div>
   </div>
 </section>
 
