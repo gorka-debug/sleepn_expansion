@@ -165,16 +165,18 @@ h1 .keep-case, h2 .keep-case, h3 .keep-case{ text-transform:none; }
   margin-top:16px; font-family:'DM Sans',sans-serif; font-size:0.7rem;
   color:var(--on-navy-soft); letter-spacing:0.03em;
 }
-.hero-title-row{display:flex; align-items:flex-end; justify-content:space-between; gap:28px; flex-wrap:wrap;}
-.hero-title-row h1{flex:1 1 480px; margin-top:14px;}
-.brand-lockup{display:flex; align-items:flex-end; gap:10px; flex:0 0 auto;}
-.brand-lockup .lockup-img{width:220px; height:auto; display:block;}
-.brand-lockup .lockup-badge{
-  font-family:'Jost',sans-serif; font-weight:800; font-size:0.72rem; line-height:1.08;
+.hero-lockup-img{
+  position:absolute; right:40px; bottom:36px;
+  width:230px; height:auto; opacity:0.95; pointer-events:none;
+}
+@media (max-width:860px){ .hero-lockup-img{width:160px; right:24px; bottom:28px;} }
+@media (max-width:560px){ .hero-lockup-img{display:none;} }
+
+.lockup-badge{
+  font-family:'Jost',sans-serif; font-weight:800; font-size:1.4rem; line-height:1.05;
   letter-spacing:0.01em; text-transform:uppercase; color:var(--yellow); white-space:nowrap;
 }
-@media (max-width:860px){ .brand-lockup .lockup-img{width:150px;} .brand-lockup .lockup-badge{font-size:0.6rem;} }
-@media (max-width:560px){ .hero-title-row{align-items:flex-start;} .hero-title-row .brand-lockup{display:none;} }
+@media (max-width:760px){ .lockup-badge{font-size:1.1rem;} }
 
 /* SECTIONS */
 section{padding-block:64px;}
@@ -323,14 +325,12 @@ section{padding-block:64px;}
 .cta-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px;}
 .contact-line{margin-top:26px; display:flex; flex-wrap:wrap; gap:24px; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--on-navy-soft);}
 .contact-line b{color:var(--on-navy);}
-.cta-band .brand-lockup{
-  position:absolute; right:28px; bottom:20px;
-  opacity:0.92; pointer-events:none;
+.cta-band .lockup-badge{
+  position:absolute; right:32px; bottom:26px;
+  text-align:right; pointer-events:none;
 }
-.cta-band .brand-lockup .lockup-img{width:190px;}
 @media (max-width:760px){
-  .cta-band .brand-lockup{ position:static; margin:32px 0 0; opacity:1; justify-content:flex-end; }
-  .cta-band .brand-lockup .lockup-img{width:150px;}
+  .cta-band .lockup-badge{ position:static; display:block; margin:32px 0 0; text-align:right; }
 }
 
 /* FOOTER */
@@ -363,13 +363,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
   </div>
   <div class="hero-content">
     <span class="eyebrow" style="color:var(--yellow);">Oportunidad para propietarios e inversores</span>
-    <div class="hero-title-row">
-      <h1>Tu activo, <em>rentable y sostenible</em> con SLEEP'N</h1>
-      <div class="brand-lockup">
-        <img class="lockup-img" src="img/lockup-mejor-cadena.png" alt="Soñamos con ser la mejor cadena del mundo, para el">
-        <div class="lockup-badge">Para<br>soñar<br>hay que<br>dormir</div>
-      </div>
-    </div>
+    <h1 style="margin-top:14px;">Tu activo, <em>rentable y sostenible</em> con SLEEP'N</h1>
     <p class="hero-sub">Reposicionamos hostales y hoteles obsoletos en alojamientos boutique sostenibles y rentables. Alquiler a largo plazo o gestión hotelera: tú decides cómo unirte al proyecto.</p>
     <div class="hero-actions">
       <a class="btn btn-yellow" href="#modelo">Alquiler o gestión</a>
@@ -378,6 +372,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
     </div>
     <div class="hero-note">SLEEP'N — 1er alojamiento B Corp certificado de España · neutro en carbono</div>
   </div>
+  <img class="hero-lockup-img" src="img/lockup-mejor-cadena.png" alt="Soñamos con ser la mejor cadena del mundo, para el">
 </div>
 
 <section id="quienes-somos">
@@ -609,10 +604,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
       <div>Teléfono: <b>+34 635 881 281</b></div>
       <div>WhatsApp: <b>+34 636 810 702</b></div>
     </div>
-    <div class="brand-lockup">
-      <img class="lockup-img" src="img/lockup-mejor-cadena.png" alt="Soñamos con ser la mejor cadena del mundo, para el">
-      <div class="lockup-badge">Para<br>soñar<br>hay que<br>dormir</div>
-    </div>
+    <div class="lockup-badge">Para<br>soñar<br>hay que<br>dormir</div>
   </div>
 </section>
 
