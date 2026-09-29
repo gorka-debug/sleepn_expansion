@@ -268,7 +268,7 @@ section{padding-block:64px;}
 .fee-row{display:flex; justify-content:space-between; font-size:0.9rem; border-bottom:1px dashed var(--line); padding-bottom:6px;}
 .fee-row b{font-family:'Jost',sans-serif; font-weight:600; color:var(--blue);}
 .safety{
-  margin-top:6px; background:var(--bg-soft); border-radius:4px; padding:12px 14px;
+  margin-top:auto; background:var(--bg-soft); border-radius:4px; padding:12px 14px;
   font-size:0.86rem; color:var(--ink-soft); border-left:3px solid var(--blue);
 }
 
@@ -342,29 +342,26 @@ section{padding-block:64px;}
 footer{padding-block:32px; border-top:1px solid var(--line);}
 .foot-grid{
   display:grid;
-  grid-template-columns:auto 1fr auto;
+  grid-template-columns:auto 1fr;
   grid-template-rows:auto auto;
   column-gap:24px; row-gap:16px;
   align-items:center;
 }
 .foot-grid .logo-mark{ grid-column:1; grid-row:1; }
 .foot-links{
-  grid-column:2; grid-row:1; justify-self:center;
+  grid-column:2; grid-row:1; justify-self:end;
   display:flex; gap:18px; flex-wrap:wrap; font-size:0.78rem; color:var(--ink-soft);
 }
 .foot-links a{text-decoration:none; opacity:0.8;}
 .foot-disclaimer{ grid-column:1 / span 2; grid-row:2; font-size:0.78rem; color:var(--ink-soft); }
-.bcorp-logo{
-  grid-column:3; grid-row:1 / span 2; justify-self:end; align-self:stretch;
-  height:100%; width:auto; max-width:220px; object-fit:contain; display:block;
-}
 @media (max-width:760px){
-  .foot-grid{grid-template-columns:1fr; grid-template-rows:auto auto auto; justify-items:center; text-align:center;}
+  .foot-grid{grid-template-columns:1fr; grid-template-rows:auto auto; justify-items:center; text-align:center;}
   .foot-grid .logo-mark{ grid-column:1; grid-row:1; }
   .foot-links{ grid-column:1; grid-row:2; justify-self:center; }
   .foot-disclaimer{ grid-column:1; grid-row:3; }
-  .bcorp-logo{ grid-column:1; grid-row:4; justify-self:center; align-self:auto; height:auto; width:220px; max-width:80%; margin-top:16px; }
 }
+/* B-CORP LOGO — ahora en "Qué hacemos" */
+.intro-bcorp-logo{ display:block; height:56px; width:auto; max-width:100%; object-fit:contain; margin:20px 0 0; }
 </style>
 </head>
 <body>
@@ -412,12 +409,12 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
       <p style="color:var(--ink-soft); margin-top:16px; font-size:1.02rem; max-width:520px;">
         <b style="color:var(--ink);">La gestión Bcorp multiplica el valor de tu inmueble.</b> SLEEP'N es una gestora hotelera para los que quieren algo más, por menos. No creemos en las categorías hoteleras: creemos en el producto. Reposicionamos Activos singulares en ubicaciones prime, con arquitectos y decoradores de prestigio, apostando siempre por relaciones a largo plazo con los propietarios.
       </p>
+      <img class="intro-bcorp-logo" src="img/bcorp-logo.png" alt="Certified B Corporation — esta empresa cumple con altos estándares de impacto social y ambiental">
       <div class="badgerow">
-        <span class="pill">Empresa B Corp certificada</span>
         <span class="pill">Neutros en carbono</span>
+        <span class="pill">BREEAM</span>
         <span class="pill">Great Place to Work</span>
         <span class="pill">Travelife Gold</span>
-        <span class="pill">BREEAM</span>
       </div>
     </div>
     <ul class="timeline">
@@ -651,7 +648,6 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
         <a href="https://sleepnvalencia.com" target="_blank" rel="noopener">sleepnvalencia.com</a>
       </div>
       <div class="foot-disclaimer">Documento de presentación comercial. Las cifras de rentabilidad son orientativas y no constituyen oferta vinculante.</div>
-      <img class="bcorp-logo" src="img/bcorp-logo.png" alt="Certified B Corporation — esta empresa cumple con altos estándares de impacto social y ambiental">
     </div>
   </div>
 </footer>
