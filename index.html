@@ -60,6 +60,7 @@ h1,h2,h3{
   line-height:1.02;
   margin:0;
 }
+h1 .keep-case, h2 .keep-case, h3 .keep-case{ text-transform:none; }
 .eyebrow{
   font-family:'DM Sans',sans-serif;
   font-weight:600;
@@ -85,12 +86,16 @@ h1,h2,h3{
   padding-block:12px;
   gap:12px;
 }
-.logo-mark{ display:inline-flex; align-items:center; gap:8px; }
-.logo-mark img{height:45px; width:auto; display:block;}
+.logo-mark{ display:inline-flex; flex-direction:row; align-items:center; gap:14px; }
+.logo-mark img{max-width:150px; width:auto; height:auto; display:block;}
 .logo-mark .tag{
-  font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.66rem;
-  letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft);
-  white-space:nowrap;
+  font-family:'Jost',sans-serif; font-weight:600; font-size:1.15rem;
+  letter-spacing:0.01em; text-transform:none; color:var(--ink-soft);
+  white-space:nowrap; padding-left:14px; border-left:1px solid var(--line);
+}
+@media (max-width:640px){
+  .logo-mark img{max-width:110px;}
+  .logo-mark .tag{font-size:0.9rem; padding-left:10px;}
 }
 .nav-links{display:flex; gap:22px; font-size:0.86rem; font-weight:600;}
 .nav-links a{text-decoration:none; opacity:0.8;}
@@ -170,6 +175,7 @@ section{padding-block:64px;}
 /* INTRO / TIMELINE */
 .intro-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start;}
 @media (max-width:860px){ .intro-grid{grid-template-columns:1fr;} }
+.intro-grid h2{font-size:clamp(1.7rem,3.6vw,2.5rem);}
 .timeline{list-style:none; margin:0; padding:0; border-left:2px solid var(--line);}
 .timeline li{position:relative; padding:0 0 22px 24px;}
 .timeline li:last-child{padding-bottom:0;}
@@ -204,6 +210,26 @@ section{padding-block:64px;}
 /* MODELS */
 .model-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
 @media (max-width:860px){ .model-grid{grid-template-columns:1fr;} }
+
+/* DESARROLLO — full-width horizontal card, applies to both models */
+.dev-card{
+  background:var(--card); border:1px solid var(--line); border-top:4px solid var(--ink);
+  border-radius:6px; padding:28px; margin-bottom:24px;
+  display:grid; grid-template-columns:280px 1fr; gap:32px; align-items:start;
+}
+@media (max-width:860px){ .dev-card{grid-template-columns:1fr; gap:18px;} }
+.dev-card-left{display:flex; flex-direction:column; gap:12px;}
+.dev-card-right{display:flex; flex-direction:column; gap:10px;}
+.dev-sub{font-family:'Jost',sans-serif; font-weight:700; font-size:0.92rem; color:var(--ink); display:flex; flex-wrap:wrap; align-items:baseline; gap:8px;}
+.dev-sub b{font-family:'Jost',sans-serif; font-weight:800; color:var(--coral); font-size:1rem;}
+.dev-scope-title{font-family:'Jost',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:0.02em; color:var(--ink-soft); margin-top:2px;}
+.dev-card ol{margin:0; padding:0; list-style:none; counter-reset:step;
+  display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
+@media (max-width:1020px){ .dev-card ol{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .dev-card ol{grid-template-columns:1fr;} }
+.dev-card ol li{padding-left:20px; position:relative; font-size:0.9rem; color:var(--ink-soft); counter-increment:step;}
+.dev-card ol li::before{content:counter(step) "."; position:absolute; left:0; color:var(--ink); font-weight:700; font-family:'Jost',sans-serif;}
+
 .model-card{
   background:var(--card); border:1px solid var(--line); border-radius:6px;
   padding:28px; display:flex; flex-direction:column; gap:16px;
@@ -298,8 +324,8 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
 <div class="nav">
   <div class="wrap nav-inner">
     <div class="logo-mark">
-      <img src="img/logo.png" alt="SLEEP'N">
-      <span class="tag">Inmuebles</span>
+      <img src="img/logo-real.png" alt="SLEEP'N" style="max-width:150px;">
+      <span class="tag">Activos</span>
     </div>
     <div class="nav-links">
       <a href="#modelo">Modelo</a>
@@ -318,12 +344,12 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
   </div>
   <div class="hero-content">
     <span class="eyebrow" style="color:var(--yellow);">Oportunidad para propietarios e inversores</span>
-    <h1 style="margin-top:14px;">Tu edificio, <em>reinventado</em> con SLEEP'N</h1>
+    <h1 style="margin-top:14px;">Tu activo, <em>reinventado</em> con SLEEP'N</h1>
     <p class="hero-sub">Reposicionamos hostales y hoteles obsoletos en alojamientos boutique sostenibles y rentables. Alquiler a largo plazo o gestión hotelera: tú decides cómo unirte al proyecto.</p>
     <div class="hero-actions">
-      <a class="btn btn-yellow" href="#modelo">Ver los dos modelos</a>
+      <a class="btn btn-yellow" href="#modelo">Alquiler o gestión</a>
       <a class="btn btn-ghost" href="#hoteles">Conocer nuestros hoteles</a>
-      <a class="btn-video" href="https://sleepn.eco/uploads/SLEEPN_Inauguracion.mp4" target="_blank" rel="noopener">▶ Ver vídeo de inauguración en sleepn.eco</a>
+      <a class="btn-video" href="https://sleepn.eco/uploads/SLEEPN_Inauguracion.mp4" target="_blank" rel="noopener">▶ Video SLEEP'N</a>
     </div>
     <div class="hero-note">SLEEP'N — 1er alojamiento B Corp certificado de España · neutro en carbono</div>
   </div>
@@ -335,7 +361,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
       <span class="eyebrow">Quiénes somos</span>
       <h2 style="margin-top:12px;">Gestionamos alojamientos bajo un concepto hotelero sostenible</h2>
       <p style="color:var(--ink-soft); margin-top:16px; font-size:1.02rem; max-width:520px;">
-        SLEEP'N es una gestora hotelera para los que quieren algo más, por menos. No creemos en las categorías hoteleras: creemos en el producto. Reposicionamos edificios singulares en ubicaciones prime, con arquitectos y decoradores de prestigio, apostando siempre por relaciones a largo plazo con los propietarios.
+        SLEEP'N es una gestora hotelera para los que quieren algo más, por menos. No creemos en las categorías hoteleras: creemos en el producto. Reposicionamos Activos singulares en ubicaciones prime, con arquitectos y decoradores de prestigio, apostando siempre por relaciones a largo plazo con los propietarios.
       </p>
       <div class="badgerow">
         <span class="pill">Empresa B Corp certificada</span>
@@ -348,7 +374,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
       <li><div class="yr">2016</div><div class="tt">Nace SLEEP'N</div><div class="dd">Reposicionamos un hostal obsoleto de 80 habitaciones en Madrid con un contrato de alquiler a largo plazo.</div></li>
       <li><div class="yr">2016 – 2025</div><div class="tt">Consolidación</div><div class="dd">SLEEP'N Atocha se consolida con sólidos resultados y reconocimientos del sector.</div></li>
       <li><div class="yr">2026</div><div class="tt">SLEEP'N Valencia</div><div class="dd">Apertura del segundo hotel, 74 habitaciones en Ciutat Vella.</div></li>
-      <li><div class="yr">2028</div><div class="tt">Córdoba y Alicante</div><div class="dd">Siguientes aperturas confirmadas dentro del plan de expansión.</div></li>
+      <li><div class="yr">2028</div><div class="tt">Córdoba y Alicante</div><div class="dd">En desarrollo.</div></li>
     </ul>
   </div>
 </section>
@@ -357,7 +383,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Resultados comprobados</span>
-      <h2>Lo que conseguimos en SLEEP'N Atocha</h2>
+      <h2>Lo que conseguimos en SLEEP'N <span class="keep-case">Atocha</span></h2>
       <p>Mismo edificio, mismo número de habitaciones. Esto es lo que cambió tras el reposicionamiento con SLEEP'N.</p>
     </div>
     <div class="kpi-grid">
@@ -376,12 +402,30 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
     <div class="section-head">
       <span class="eyebrow">Dos formas de unirte</span>
       <h2>Alquiler o gestión: elige tu modelo</h2>
-      <p>Buscamos propietarios de edificios singulares en ubicaciones prime que quieran maximizar el valor de su activo. Ofrecemos dos vías de colaboración, cada una con sus propias garantías.</p>
+      <p>Buscamos propietarios que quieran maximizar el valor de tu activo. Ofrecemos dos vías de colaboración, tú eliges:</p>
     </div>
+    <div class="dev-card">
+      <div class="dev-card-left">
+        <h3>Desarrollo</h3>
+        <div class="dev-sub">Project management &amp; development <b>5k/mes</b></div>
+        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0;">Estudio para el reposicionamiento del producto con el objeto de incrementar su valor y mejorar los resultados. Aplicable tanto en Alquiler como en Gestión.</p>
+      </div>
+      <div class="dev-card-right">
+        <div class="dev-scope-title">Gestión integral del proyecto</div>
+        <ol>
+          <li>Due Diligence</li>
+          <li>Estudio de reposicionamiento, creación de producto y elección de marca</li>
+          <li>Proyecto de arquitectura, ingeniería y decorativo</li>
+          <li>Gestión de licencias administrativas</li>
+          <li>Project Management de todo el proceso de la obra, así como de los FF&amp;E y OS&amp;E</li>
+        </ol>
+      </div>
+    </div>
+
     <div class="model-grid">
       <div class="model-card accent">
         <h3>Alquiler a largo plazo</h3>
-        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0;">Cedes el inmueble bajo un contrato de arrendamiento y SLEEP'N asume la inversión, la reforma y toda la operación.</p>
+        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0;">Contrato de arrendamiento con o sin inversión en CAPEX y OPEX.</p>
         <ul>
           <li>Contratos de 20 a 30 años, con rentas predecibles y constantes</li>
           <li>Generamos valor al activo mediante reposicionamiento integral</li>
@@ -400,19 +444,19 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
       </div>
       <div class="model-card accent2">
         <h3>Contrato de gestión</h3>
-        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0;">Mantienes la propiedad del activo y SLEEP'N lo opera de forma profesional bajo la marca, alineando incentivos con el resultado.</p>
+        <p style="color:var(--ink-soft); font-size:0.95rem; margin:0;">SLEEP'N lo opera el activo, alineando incentivos con el resultado.</p>
         <div class="fee-list">
           <div class="fee-row"><span>Management Fee</span><b>4% ingresos</b></div>
           <div class="fee-row"><span>Marketing Fee</span><b>2% ingresos</b></div>
           <div class="fee-row"><span>Reservation Fee</span><b>1% ingresos</b></div>
           <div class="fee-row" style="border-bottom:none;"><span>Incentive Fee (AGOP)</span><b>10% sobre resultados</b></div>
         </div>
-        <div class="safety">Cláusula de alineación: si el Net Profit es negativo, SLEEP'N renuncia al Management Fee del 4% a partir del tercer año.</div>
+        <div class="safety">Cláusula de alineación: si el Net Profit es negativo, SLEEP'N renuncia al Marketing Fee, Reservation Fee y Incentive Fee.</div>
       </div>
     </div>
 
     <div class="criteria-strip">
-      <div class="criteria-item"><div class="n">50–100</div><div class="l">Habitaciones por edificio</div></div>
+      <div class="criteria-item"><div class="n">50–100</div><div class="l">Habitaciones por Activo</div></div>
       <div class="criteria-item"><div class="n">1.500–4.000</div><div class="l">m² de superficie aprox.</div></div>
       <div class="criteria-item"><div class="n">1–3★</div><div class="l">Categoría a reposicionar</div></div>
       <div class="criteria-item"><div class="n">Prime</div><div class="l">Ubicación urbana singular</div></div>
@@ -431,7 +475,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
   <div class="wrap hotel-block atocha" style="border-top:none; padding-top:0;">
     <div class="hotel-head">
       <div>
-        <h2>SLEEP'N Atocha</h2>
+        <h2>SLEEP'N <span class="keep-case">Atocha</span></h2>
         <div class="hotel-stats">
           <div><div class="n">80</div><div class="l">Habitaciones</div></div>
           <div><div class="n">2016</div><div class="l">Apertura</div></div>
@@ -456,11 +500,11 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
   <div class="wrap hotel-block valencia">
     <div class="hotel-head">
       <div>
-        <h2>SLEEP'N Valencia</h2>
+        <h2>SLEEP'N <span class="keep-case">Valencia</span></h2>
         <div class="hotel-stats">
           <div><div class="n">74</div><div class="l">Habitaciones</div></div>
           <div><div class="n">2026</div><div class="l">Apertura</div></div>
-          <div><div class="n">3★</div><div class="l">Calidad de servicio</div></div>
+          <div><div class="n">3★–4★</div><div class="l">Calidad de servicio</div></div>
         </div>
       </div>
     </div>
@@ -527,15 +571,15 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
 <section id="contacto" class="cta-band">
   <div class="wrap">
     <span class="eyebrow" style="color:var(--yellow);">Hablemos de tu inmueble</span>
-    <h2 style="margin-top:14px;">¿Tienes un edificio con potencial? Cuéntanoslo.</h2>
+    <h2 style="margin-top:14px;">¿Tienes un terreno o activo con potencial? Cuéntanoslo.</h2>
     <p>Analizamos cada oportunidad de forma individual: ubicación, superficie, estado del activo y el modelo de colaboración que mejor se ajuste a tus objetivos.</p>
     <div class="cta-actions">
-      <a class="btn btn-yellow" href="mailto:info@sleepn.eco?subject=Oportunidad%20de%20inmueble%20para%20SLEEP%27N">Tengo un inmueble en alquiler</a>
-      <a class="btn btn-ghost" href="mailto:info@sleepn.eco?subject=Quiero%20unirme%20en%20gesti%C3%B3n%20a%20SLEEP%27N">Quiero unirme en gestión</a>
+      <a class="btn btn-yellow" href="mailto:gonzalo@sleepn.eco?subject=Oportunidad%20de%20inmueble%20para%20SLEEP%27N">Tengo un activo en alquiler</a>
+      <a class="btn btn-ghost" href="mailto:gonzalo@sleepn.eco?subject=Quiero%20unirme%20en%20gesti%C3%B3n%20a%20SLEEP%27N">Quiero unirme en gestión</a>
     </div>
     <div class="contact-line">
-      <div>Email: <b>info@sleepn.eco</b></div>
-      <div>WhatsApp: <b>+34 648 68 75 44</b></div>
+      <div>Email: <b>gonzalo@sleepn.eco</b></div>
+      <div>WhatsApp: <b>+34 636 810 702</b></div>
     </div>
   </div>
 </section>
@@ -543,7 +587,7 @@ footer{padding-block:32px; border-top:1px solid var(--line);}
 <footer>
   <div class="wrap foot-inner">
     <div class="logo-mark">
-      <img src="img/logo.png" alt="SLEEP'N" style="height:33px;">
+      <img src="img/logo-real.png" alt="SLEEP'N" style="max-width:150px; height:auto;">
     </div>
     <div class="foot-links">
       <a href="https://sleepn.eco" target="_blank" rel="noopener">sleepn.eco</a>
